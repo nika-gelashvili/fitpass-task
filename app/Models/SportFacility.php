@@ -27,4 +27,12 @@ class SportFacility extends Model
     {
         return $this->hasMany(Card::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function entranceLog()
+    {
+        return $this->hasMany(EntranceLog::class);
+    }
 }
