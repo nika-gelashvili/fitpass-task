@@ -2,7 +2,9 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -13,7 +15,9 @@ class Handler extends ExceptionHandler
      * @var array<int, class-string<Throwable>>
      */
     protected $dontReport = [
-        //
+        \HttpException::class,
+        ModelNotFoundException::class,
+        ValidationException::class
     ];
 
     /**
