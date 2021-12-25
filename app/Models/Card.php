@@ -12,6 +12,18 @@ class Card extends Model
     use HasFactory, Uuids;
 
     /**
+     * Function returns Card model selected by id with User and SportFacility models.
+     * @param $id
+     * @return mixed
+     */
+    public static function getByIdWithUserAndFacility($id)
+    {
+        return self::where('id', $id)
+            ->with('user', 'facility')
+            ->first();
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
